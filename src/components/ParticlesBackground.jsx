@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 export default function ParticlesBackground() {
 const canvasRef = useRef(null);
@@ -9,7 +9,7 @@ const ctx = canvas.getContext('2d');
 
 let particles = [];
 const particleCount = 50;
-const colors = ['rgba(255, 255, 255, 0.7)'];
+const colors = ["rgba(255, 255, 255, 0.7)"];
 
 class Particle {
   constructor() {
