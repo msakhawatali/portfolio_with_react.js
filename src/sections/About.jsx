@@ -31,7 +31,10 @@ export default function About(){
         >
           <motion.div className="relative w-[160px] h-[160px] md:w-[200px] md:h-[200px]
           rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#1cd8d2]/20 to-[#302b63]/20 border border-[#1cd8d2]/25
-          ">
+          "
+          whileHover={{scale:1.02}}
+          transition={{type:"spring" , stiffness:200 , damping:18}}
+          >
             <img src={p} alt="profile" className="absolute inset-0"/>
           </motion.div> 
 
@@ -61,7 +64,27 @@ export default function About(){
                 </motion.div>
               ))}
             </div>
+            <div className="mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
+              <a href="#projects" className="inline-flex items-center justify-center rounded-lg bg-white text-black font-semibold px-5 py-3 hover:bg-gray-200 transition">View Project</a>
+              <a href="#contact" className="inline-flex items-center justify-center rounded-lg border border-white/20 bg-white/10 text-white px-5 py-3 hover:bg-white/20 transition">Get in Touch</a>
+            </div>
           </div>
+        </motion.div>
+        <motion.div className="text-center md:text-left"
+        initial={{opacity:0 , x:-30}}
+        whileInView={{opacity:1, x:0}}
+        transition={{duration:0.6}}
+        viewport={{once:true , amount:0.4}}
+        >
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
+                About Me
+              </h3>
+              <p className="text-gray-300 leading-relaxed text-base sm:tex-lg">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse earum pariatur doloribus amet voluptate modi dolorem fuga, nostrum corrupti adipisci, minima beatae impedit, numquam sed dignissimos architecto delectus id soluta.
+              </p>
+              <p className="mt-4 text-gray-400 text-base sm:text-lg">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, sequi.
+              </p>
         </motion.div>
       </div>
     </section>
