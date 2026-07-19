@@ -1,6 +1,5 @@
 import { motion } from "framer-motion"
 import p from "../assets/p.png"
-import { div, label } from "framer-motion/client"
 
 export default function About(){
   const stats = [
