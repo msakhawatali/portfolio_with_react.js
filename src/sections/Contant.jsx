@@ -1,6 +1,8 @@
 import { useState } from "react";
 import ParticlesBackground from "../components/ParticlesBackground"
 import emailjs from "@emailjs/browser"
+import { motion } from "framer-motion";
+import Astra from "../assets/astra_contact.png"
 
 const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
@@ -72,6 +74,15 @@ export default function Contact(){
     md:flex-row items-center gap-10
     ">
 <ParticlesBackground/>
+<div className="relative z-10 w-full flex flex-col md:flex-row items-center gap-10">
+  <motion.div className="w-full md:w-1/2 flex justify-center"
+  initial={{opacity:0, x:-50}}
+  whileInView = {{opacity:1, x:0}}
+  transition = {{duration : 0.6}}
+  >
+  <img src={Astra} alt="Contact" />
+  </motion.div>
+</div>
     </section>
   )
 }
