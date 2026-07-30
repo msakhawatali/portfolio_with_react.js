@@ -7,7 +7,7 @@ import Skills from './sections/Skills'
 import Experience from './sections/Experience'
 import Testimonials from './sections/Testimonials'
 import Products from './sections/Products'
-import Contant from './sections/Contant'
+import Contact from './sections/Contact'
 import Footer from './sections/Footer'
 import React from 'react'
 import IntroAnimation from './components/IntroAnimation'
@@ -28,7 +28,7 @@ export default function App(){
     <Products/>
     <Experience/>
     <Testimonials/>
-    <Contant/>
+    <Contact/>
     <Footer/>
     </div>
     )}

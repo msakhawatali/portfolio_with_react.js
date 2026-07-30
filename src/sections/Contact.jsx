@@ -2,7 +2,7 @@ import { useState } from "react";
 import ParticlesBackground from "../components/ParticlesBackground"
 import emailjs from "@emailjs/browser"
 import { motion } from "framer-motion";
-import Astra from "../assets/astra_contact.png"
+import Astra from "../assets/Astra.png"
 
 const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
@@ -24,13 +24,13 @@ export default function Contact(){
   const handleChange = (e) => {
     const {name, value} = e.target;
     if(name === "budget" && value && !/^\d+$/.test(value)) return;
-    setFormData((e) => ({...p, [name] : value}));
-    if(errors[name]) setErrors((e) => ({...p , [name] : ""}));
+    setFormData((p) => ({...p, [name] : value}));
+    if(errors[name]) setErrors((p) => ({...p , [name] : ""}));
   }
   const validateForm = () => {
     const required = ["name" , "email", "service", "idea"];
     const newEorrrs = {};
-    required.forEach((f) = !formData[f].trim() && (newEorrrs[f] = "Fill this field"));
+    required.forEach((f) => { if(!formData[f].trim()) newEorrrs[f] = "Fill this field" });
     if (formData.service !== "other" && !formData.budget.trim())
       newEorrrs.budget = "Fill this field";
     setErrors(newEorrrs);
@@ -87,10 +87,10 @@ export default function Contact(){
   />
   </motion.div>
 
-    /*right side*/
+   {/* right side */}
 
 
-  <motion.div className="w-full md:w-1/2 bg:white/5 p-8 rounded-2xl shadow-lg border border-white/10"
+  <motion.div className="w-full md:w-1/2 bg-white/5 p-8 rounded-2xl shadow-lg border border-white/10"
   initial={{opacity:0, x:50}}
   animate={{opacity:1, x:0}}
   transition={{duration:0.6}}
@@ -98,7 +98,7 @@ export default function Contact(){
     <h2 className="text-3xl font-bold mb-6">
       Let's Work Together
     </h2>
-    <form className="flex flex-col gap-5 onSubmit={handleSubmit}">
+    <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
       <div className="flex flex-col">
         <label className="mb-1">Your Name <span className="text-red-500">*</span> </label>
         <input type="text" 
@@ -160,7 +160,7 @@ export default function Contact(){
           value={formData.budget}
           className={`p-3 rounded-md bg-white/10 border ${errors.budget ? "border-red-500" : "border-gray-500"} text-white focus:outline-none focus:border-blue-500`}
           />
-      {errors.service && <p className="text-red-500 text-xs">{errors.service}</p>}
+      {errors.budget && <p className="text-red-500 text-xs">{errors.budget}</p>}
 
         </div>
       )}
@@ -180,10 +180,20 @@ export default function Contact(){
       </div>
 
       {status && (
-        <p>
+        <p className={` text-sm ${status === "success" ? "text-gray-400" : status === "error" ? "text-red-400" : "text-yellow-400"}`}>
           {status === "sending" ? "sending..." : status === "success" ? "Message sent successfuly ✅" : "Something went wrong ❌"}
         </p>
       )}
+
+      <motion.button className="bg-blue-600 hover:bg-blue-700 disabled:opacity-60 text-white py-3 rounded-md font-semibold transition"
+      whileHover={{scale:1.05}}
+      whileTap={{scale:0.95}}
+      disabled={status === "sending"}
+      type="submit"
+      >
+        {status === "sending" ? "sending..." : "Send Message"}
+
+      </motion.button>
 
     </form>
 
