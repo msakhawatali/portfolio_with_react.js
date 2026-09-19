@@ -4,35 +4,54 @@ import { useEffect, useMemo, useRef, useState } from "react"
 
 const experiences = [
   {
-  role : "web developer",
-  company : "Habble42",
-  duration : "2026",
-  description : "Built Application"
+    role: "Web Developer",
+    company: "Brain Mentors",
+    duration: "2022",
+    description: "Worked with team to build high-performance apps, integrated AI features, and improved user engagement by 10%."
   },
   {
-  role : "web developer",
-  company : "Habble42",
-  duration : "2026",
-  description : "Built Application"
+    role: "Web Developer Intern",
+    company: "Mobisoft Technologies",
+    duration: "2022 - 2023",
+    description: "In this internship , I gained valuable hands on experience and exposure to various aspects of web development."
   },
   {
-  role : "web developer",
-  company : "Habble42",
-  duration : "2026",
-  description : "Built Application"
+    role: "Graduate Engineer",
+    company: "HCL Technologies",
+    duration: "2024 - 2025",
+    description: "Built the frontend of a GenAI-powered PV Intake Application using Next.js and TypeScript for a U.S life sciences client, enabling automated patient report processing across global regions."
   }
 ]
 
 function ExperienceItem({exp, idx, start, end, scrollYProgress, layout}){
-  const scale = useTransform(scrollYProgress, [start, Math.min(end, 1)], [0, 1])
-  // opacity: 0 se 1 aaye, phir hamesha 1 rahe — kabhi gaeb na ho
+  // Entrance window starts slightly before reaching target scroll threshold
+  const animStart = idx === 0 ? 0 : Math.max(0, start - 0.15);
+  
+  const scale = useTransform(scrollYProgress, (v) => {
+    if (v >= start) return 1;
+    if (v <= animStart) return 0;
+    return (v - animStart) / (start - animStart);
+  });
+
+  // opacity: once v >= start, locks at 1 permanently so cards never disappear
   const opacity = useTransform(scrollYProgress, (v) => {
-    if (v < start) return 0;
-    if (v >= start) return Math.min((v - start) / (end - start), 1);
-    return 1;
-  })
-  const y = useTransform(scrollYProgress, [start, Math.min(end, 1)], [idx%2===0 ? 30 : -30, 0])
-  const x = useTransform(scrollYProgress, [start, Math.min(end, 1)], [-24, 0])
+    if (v >= start) return 1;
+    if (v <= animStart) return 0;
+    return (v - animStart) / (start - animStart);
+  });
+
+  const y = useTransform(scrollYProgress, (v) => {
+    const targetY = idx % 2 === 0 ? 30 : -30;
+    if (v >= start) return 0;
+    if (v <= animStart) return targetY;
+    return targetY * (1 - (v - animStart) / (start - animStart));
+  });
+
+  const x = useTransform(scrollYProgress, (v) => {
+    if (v >= start) return 0;
+    if (v <= animStart) return -24;
+    return -24 * (1 - (v - animStart) / (start - animStart));
+  });
 
 if (layout === "desktop"){
   return (
