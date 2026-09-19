@@ -14,6 +14,19 @@ import IntroAnimation from './components/IntroAnimation'
 
 export default function App(){
   const [introDone , setIntroDone] = React.useState(false);
+
+  React.useEffect(() => {
+    if (introDone && window.location.hash) {
+      const hash = window.location.hash;
+      const target = document.querySelector(hash);
+      if (target) {
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: "smooth" });
+        }, 200);
+      }
+    }
+  }, [introDone]);
+
   return (
   <>
   {!introDone && <IntroAnimation onFinish={() => setIntroDone(true)} />}

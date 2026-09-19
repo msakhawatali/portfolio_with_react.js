@@ -6,6 +6,7 @@ import { useMemo } from "react";
 import React from "react";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import avator from "../assets/avator.png";
+import resumePdf from "../assets/SakhawatAli_Resume.pdf";
 
 
 const socials = [
@@ -121,14 +122,14 @@ React.useEffect(() => {
           animate = {{opacity:1}}
           transition = {{delay:0.8, duration:0.8}}
           >
-            <a href="#project"
+            <a href="#projects"
             className="px-6 py-3 rounded-full font-medium text-lg text-white
             bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#302b63]
             shadow-lg hover:scale-105 transition-all 
             "
             >View My Work</a>
-            <a href="/SakhawatAli_Software Engineer_Resume.pfd"
-            download
+            <a href={resumePdf}
+            download="SakhawatAli_Software_Engineer_Resume.pdf"
             className="px-6 py-3 rounded-full text-lg font-medium text-black bg-white hover:bg-gray-200 shadow-lg hover:scale-105 transition-all"
             >My Resume</a>
           </motion.div>
