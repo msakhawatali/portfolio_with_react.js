@@ -4,23 +4,23 @@ import { useEffect, useMemo, useRef, useState } from "react"
 
 const experiences = [
   {
-    role: "Web Developer",
-    company: "Brain Mentors",
-    duration: "2022",
-    description: "Worked with team to build high-performance apps, integrated AI features, and improved user engagement by 10%."
+    role: "AI Model Trainer",
+    company: "Hubble42 Inc.",
+    duration: "Apr 2026 - jun 2026",
+    description: "Worked on data-driven projects, applied data science techniques, and strengthened analytical & problem-solving skills."
   },
-  {
-    role: "Web Developer Intern",
-    company: "Mobisoft Technologies",
-    duration: "2022 - 2023",
-    description: "In this internship , I gained valuable hands on experience and exposure to various aspects of web development."
-  },
-  {
-    role: "Graduate Engineer",
-    company: "HCL Technologies",
-    duration: "2024 - 2025",
-    description: "Built the frontend of a GenAI-powered PV Intake Application using Next.js and TypeScript for a U.S life sciences client, enabling automated patient report processing across global regions."
-  }
+  // {
+  //   role: "Web Developer Intern",
+  //   company: "Mobisoft Technologies",
+  //   duration: "2022 - 2023",
+  //   description: "In this internship , I gained valuable hands on experience and exposure to various aspects of web development."
+  // },
+  // {
+  //   role: "Graduate Engineer",
+  //   company: "HCL Technologies",
+  //   duration: "2024 - 2025",
+  //   description: "Built the frontend of a GenAI-powered PV Intake Application using Next.js and TypeScript for a U.S life sciences client, enabling automated patient report processing across global regions."
+  // }
 ]
 
 function ExperienceItem({exp, idx, start, end, scrollYProgress, layout}){

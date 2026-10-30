@@ -47,8 +47,7 @@ export default function About(){
               Software Engineer
             </p>
             <p className="mt-4 text-gray-300 leading-relaxed text-base sm:text-lg max-w-2xl md:max-w-3xl">
-              Software Engineer with hands-on experience building REST APIs and backend applications using Python, FastAPI, Django, and PostgreSQL. 
-              Strong understanding of authentication, database design, and software engineering principles, with a passion for backend development and problem-solving.
+              I'm a Software Engineer specializing in Python backend development. I build REST APIs, secure authentication systems, and well-structured database solutions using FastAPI, Django, and PostgreSQL.
             </p>
             <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 sm:gap-4 max-w-xl">
               {stats.map((item, i) => (
@@ -79,10 +78,10 @@ export default function About(){
                 About Me
               </h3>
               <p className="text-gray-300 leading-relaxed text-base sm:tex-lg">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse earum pariatur doloribus amet voluptate modi dolorem fuga, nostrum corrupti adipisci, minima beatae impedit, numquam sed dignissimos architecto delectus id soluta.
+                I love creating clean and reliable applications. Currently focused on building full-stack projects and continuously improving my skills in backend development and problem-solving.
               </p>
               <p className="mt-4 text-gray-400 text-base sm:text-lg">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, sequi.
+                Software Engineer specializing in Python backend systems (FastAPI, Django, PostgreSQL). Experienced in building REST APIs, secure auth systems, and database schemas.
               </p>
         </motion.div>
       </div>

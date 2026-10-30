@@ -115,7 +115,7 @@ React.useEffect(() => {
           animate = {{opacity:1, y:0}}
           transition = {{delay:0.4, duration:0.8}}
           >
-            I turn complex idea into seamless, high-impact web experience -- building modern, scalable, and lighting-fast applications that make a difference.
+            I turn complex ideas into seamless, high-impact web experiences — building modern, scalable, and lightning-fast applications that make a difference.
           </motion.p>
           <motion.div className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-6"
           initial = {{opacity:0}}
